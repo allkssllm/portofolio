@@ -1,0 +1,86 @@
+:root {
+    color-scheme: light;
+}
+
+/* Base Transitions */
+body,
+div,
+section,
+nav,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button,
+input,
+textarea,
+ul,
+li {
+    transition-property: background-color, border-color, color, fill, stroke, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Mencegah FOUC (Flash of Unstyled Content) dengan menyembunyikan elemen animasi di awal */
+.gsap-reveal {
+    visibility: hidden;
+    /* Kita pakai visibility hidden, bukan display none, agar layout tetap terbentuk */
+}
+
+.glass {
+    backdrop-filter: blur(10px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Blob Animation */
+@keyframes blob {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
